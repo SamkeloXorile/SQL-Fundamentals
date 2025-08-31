@@ -1,0 +1,51 @@
+1. Calculate total pay by adding base_salary and bonus. Expected Columns: emp_id, name, total_pay 
+SELECT emp_id,
+       name,
+       (base_salary+bonus) AS total_pay
+FROM Salaries
+
+2. Calculate the total order cost (item_price * quantity). Expected Columns: order_id, total_cost 
+SELECT Order_id,
+       (item_price*quantity) as Total_cost
+FROM Orders 
+
+3. Calculate difference between budget and actual cost. Expected Columns: expense_id, variance 
+SELECT expense_id,
+       (budget-actual_cost) as variance
+FROM expenses
+
+4. Find average revenue per customer (total_revenue / num_customers). Expected Columns: sale_id, avg_per_customer 
+SELECT sales_id,
+       (total_revenue/num_customers) as avg_per_customer
+FROM Sales
+
+5. Calculate remaining stock (stock - sold). Expected Columns: product_id, remaining_stock 
+SELECT product_id,
+       (stock-sold) as remaining_stock
+FROM Products
+
+6. Find leftover items after packing full boxes using modulo (items_total % items_per_box). Expected Columns: batch_id, leftover_items 
+SELECT batch_id,
+       (items_total%items_per_box) as leftover_items
+FROM Batches
+
+7. Calculate discounted price using original_price - (original_price * discount_rate). Expected Columns: item_id, discounted_price 
+SELECT item_id,
+       (original price * discount_rate) as discounted_price
+FROM Discounts
+
+8. Compute weekly pay (hours_worked * hourly_rate). Expected Columns: emp_id, weekly_pay 
+SELECT emp_id,
+       (hours_worked*hourly_rate) as weekly_pay
+FROM Employees_hours
+
+9. Calculate miles per gallon (total_miles / fuel_used). Expected Columns: vehicle_id, mpg 
+SELECT vehicle_id,
+       (total_miles/fuel_used) as mpg
+From Vehicles
+
+10. Calculate net fee to be paid (course_fee - scholarship_amount). Expected Columns: student_id, net_fee 
+SELECT student_id,
+       (couse_fee-scholarship_amount) as net_fee
+FROM Tuition
+       
