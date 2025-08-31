@@ -1,0 +1,143 @@
+1. Classify each product by price: 
+● 'Expensive' if price > 1000 
+● 'Mid-range' if price between 100 and 1000 
+● 'Budget' if price < 100 
+Expected Output Columns:● product_name ● price ● price_category 
+SELECT product_name,
+       price,
+       CASE 
+        WHEN price >1000 THEN 'Expensive'
+        WHEN price BETWEEN 100 AND 1000 THEN 'Mid-rage'
+        ELSE 'Budget'
+        END AS price_category
+FROM products;
+
+2. Label each order: 
+● 'High Value' for orders ≥ 1000 
+● 'Medium Value' for 500–999.99 
+● 'Low Value' for orders < 500 
+Expected Output Columns: ● customer_name ● amount ● order_value_category 
+SELECT cutomer_name,
+       amount,
+       CASE 
+        WHEN amount >= 1000 THEN 'High Value'
+        WHEN amount BETWEEN 500 and 999 'Medium Value'
+        ELSE 'Low Value'
+        END AS order_value_category
+FROM orders;
+
+3. Categorize employee position: 
+● If in 'IT' and salary > 80000 → 'Senior IT' 
+● If in 'HR' and salary > 55000 → 'Experienced HR' 
+● Otherwise → 'Staff' 
+Expected Output Columns: ● emp_name ● department ● salary ● position_level 
+SELECT emp_name,
+       department,
+       salary,
+       CASE 
+        WHEN Department='IT' and salary >80000 THEN 'Senior IT'
+        WHEN Department='HR' AND  salary >55000 THEN 'Experienced HR'
+        ELSE 'Staff'
+        END AS Positional_level
+FROM employees; 
+
+4. Assign a letter grade: 
+● ≥ 90: 'A' 
+● 80–89: 'B' 
+● 70–79: 'C' 
+● 60–69: 'D' 
+● < 60: 'F' 
+Expected Output Columns: ● student_name ● score ● grade 
+SELECT student_name,
+       score,
+       CASE 
+        WHEN score >=90 THEN 'A'
+        WHEN score BETWEEN 80 AND 89 THEN 'B'
+        WHEN score BETWEEN 70 AND 79 THEN 'C'
+        WHEN score BETWEEN 60 AND 69 THEN 'D'
+        ELSE 'F'
+        END AS Grade
+FROM students;
+
+5. Label delivery performance: 
+● ≤ 30 mins: 'Fast' 
+● 31–60 mins: 'On Time' 
+● 60 mins: 'Late' 
+Expected Output Columns: ● delivery_id ● delivery_time_minutes ● performance 
+SELECT delivery_id,
+       delivery_time_minutes,
+       CASE
+        WHEN delivery_time_minutes <=30 THEN 'Fast'
+        WHEN delivery_time_minutes BETWEEN >=31 AND <=60 THEN 'On Time'
+        ELSE 'Late'
+        END AS performance
+FROM deliveries 
+
+6. Convert priority to labels: 
+● 3 → 'High' 
+● 2 → 'Medium' 
+● 1 → 'Low' 
+Expected Output Columns: ● issue_type ● priority ● priority_label 
+SELECT issue_type,
+       priority,
+       CASE 
+        WHEN priority 3 THEN 'High'
+        WHEN priority 2 THEN 'Medium'
+        ELSE 'Low'
+        END AS priority_label
+FROM tickets
+
+7.Calculate attendance % and classify: 
+● ≥ 90% → 'Excellent' 
+● 75–89% → 'Good' 
+● < 75% → 'Needs Improvement' 
+Expected Output Columns: ● student_id ● attendance_percentage ● attendance_status 
+SELECT student_id,
+       attendance_percentage,
+       CASE
+        WHEN attendance_percentage >=90 THEN 'Excellent'
+        WHEN attendance_percentage >=75 AND <=89 THEN 'Good'
+        ELSE 'Needs Improvement'
+        END AS attendance_status
+FROM attendance_status 
+
+8. Label stock status: 
+● 0 → 'Out of Stock' 
+● 1–5 → 'Low Stock' 
+● 5 → 'In Stock' 
+Expected Output Columns: ● product_id ● stock_qty ● stock_status
+SELECT product_id,
+       stock_qty,
+       CASE 
+        WHEN stock_qty =0 THEN 'Out of stock'
+        WHEN stock_qty BETWEEN 1 AND 5 THEN 'Low stock'
+        ELSE 'In stock'
+        END AS stock_status
+FROM products_inventory
+ 
+9. Classify by size: 
+● ≥ 25 → 'Large' 
+● 10–24 → 'Medium' 
+● < 10 → 'Small' 
+Expected Output Columns:● subject ● enrolled_students ● class_size_category 
+SELECT subject,
+       enrolled_students,
+       CASE 
+        WHEN enrolled_students >= 25 THEN 'Large'
+        WHEN enrolled_students BETWEEN 10 AND 24 THEN 'Medium'
+        ELSE 'Small'
+        END AS class_size_category
+FROM classes 
+
+10. Apply discount flag: 
+● If payment_method = 'Cash' and amount ≥ 200 → 'Eligible for Discount' 
+● Otherwise → 'Not Eligible' 
+Expected Output Columns: ● payment_id ● payment_method ● amount ● discount_eligibility 
+SELECT payment_id,
+       payment_method,
+       amount,
+       CASE 
+        WHEN payment_method= 'cash' AND amount >= 200 THEN 'Eligable for discount'
+        WHEN payment_method= 'PayPal' AND amount <200 THEN 'Not eligable'
+        END AS dicount_eligibility
+FROM payments 
